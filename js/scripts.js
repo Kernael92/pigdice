@@ -26,15 +26,19 @@ var totalRoll;
 
 //User interface logic
 $(document).ready(function() {
+   var playerOneName;
+   var playerTwoName;
+
    $("form#signup-form").submit(function(event) {
       event.preventDefault();
-      var playerOneName = $("player-one-signup").val();
-      var playerTwoName = $("player-two-signup").val();
+      totalRoll = parseInt($("#rolled-total").text());
+       playerOneName = $("player-one-signup").val();
+       playerTwoName = $("player-two-signup").val();
 
       if (playerOneName == "" || playerTwoName == "") {
          alert("please enter a name for each player");
       }
-      totalRoll = parseInt($("#rolled-total").text());
+
       $(".player-setup").slideUp(600);
       $("#player-one-name").text(playerOneName);
       $("#player-two-name").text(playerTwoName);
@@ -56,7 +60,7 @@ $(document).ready(function() {
                totalRoll = 0;
                $("#hold").attr("disabled", true).removeClass("btn-danger");
                $(this).addClass("roll-again").text("Roll AGAIN?");
-               $("#rolled-total").text("totalroll");
+               $("#rolled-total").text(totalroll);
                $("#rolled-number").text(player2.currentScore);
 
             }
@@ -65,4 +69,29 @@ $(document).ready(function() {
       }
    });
    // end click
+   $("#hold").click(function() {
+      if (player1.turn === true) {
+         player1.takeTurn();
+         player2.takeTurn();
+         player1.addPoints(totalRoll);
+         totalRoll = 0;
+         $(this).attr("disabled", true).removeClass("btn-danger");
+         $("#rolled-total").text("0");
+         $(".p1-total-score").text(player1.scoreTotal);
+         $("#roll").text("Roll");
+         $("player-msg").text(playerTwoName + ", YOUR TURN!");
+      } else {
+         player1.takeTurn();
+         player2.takeTurn();
+         player2.adddPoints(totalRoll);
+         totalRoll = 0;
+         $(this).attr("disabled", true).removeClass("btn-danger");
+         $("#rolled-total").text("0");
+         $(".p1-total-score").text(player2.scoreTotal);
+         $("#roll").text("Roll");
+         $("player-msg").text(playerOneName + ", YOUR TURN!");
+
+
+      }
+   });
 });
