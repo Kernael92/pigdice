@@ -23,3 +23,23 @@ var player1 = new Player(true);
 var player2 = new Player(false);
 
 var totalRoll;
+
+//User interface logic
+$(document).ready(function() {
+   $("form#signup-form").submit(function(event) {
+      event.preventDefault();
+      var playerOneName = $("player-one-signup").val();
+      var playerTwoName = $("player-two-signup").val();
+
+      if (playerOneName == "" || playerTwoName == "") {
+         alert("please enter a name for each player");
+      }
+      totalRoll = parseInt($("#rolled-total").text());
+      $(".player-setup").slideUp(600);
+      $("#player-one-name").text(playerOneName);
+      $("#player-two-name").text(playerTwoName);
+      $("#player-msg").text(playerOneName + ", GO!");
+      $(".game").slideDown(600);
+
+   });
+});
