@@ -42,4 +42,27 @@ $(document).ready(function() {
       $(".game").slideDown(600);
 
    });
+   // end submit
+   $("#roll").click(function() {
+      if (player1.turn == true) {
+         if (player1.scoreTotal >=100 || player2.scoreTotal >=100) {
+            $("button").attr("readonly, true");
+            alert("WE HAVE A WINNER!!!!!!  ;)");
+         } else {
+            player1.roll();
+            if (player1.currentScore == 1) {
+               player1.takeTurn();
+               player2.takeTurn();
+               totalRoll = 0;
+               $("#hold").attr("disabled", true).removeClass("btn-danger");
+               $(this).addClass("roll-again").text("Roll AGAIN?");
+               $("#rolled-total").text("totalroll");
+               $("#rolled-number").text(player2.currentScore);
+
+            }
+         }
+
+      }
+   });
+   // end click
 });
