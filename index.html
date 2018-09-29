@@ -14,7 +14,7 @@
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6 game-info">
+        <div class="col-md-7 game-info">
           <h4>Pig Dice is a two-person game of chance. During each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold". The other rules are:</h4>
           <ul>
             <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
@@ -23,7 +23,7 @@
             <li><strong>The first player to score 100 or more points wins.</strong></li>
           </ul>
         </div>
-        <div class="col-sm-6 player-setup">
+        <div class="col-md-4 player-setup">
           <h3>Player Setup</h3>
           <form id="signup-form">
             <div class="form-group">
@@ -34,7 +34,7 @@
               <label for="player-two-signup">Player Two</label>
               <input id="player-two-signup" class="form-control" type="text" placeholder="Enter name">
             </div>
-            <button class="btn btn-primary" type="submit">Play</button>
+            <button class="btn btn-success" type="submit">Play</button>
           </form>
         </div>
       </div>
@@ -43,14 +43,14 @@
     <br>
     <div class="container game">
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-md-4">
           <h3>Player One:</h3>
           <h4 id="player-one-name"></h4>
           <p>Score:</p>
           <p><span class="p1-total-score"></span></p>
         </div>
 
-        <div class="col-xs-4">
+        <div class="col-md-4">
           <h3>Rolled Dice</h3>
           <h1 id="rolled-number">#</h1>
           <h3>Possible Points</h3>
@@ -63,7 +63,7 @@
           <p id="player-turn-score"></p>
         </div>
 
-        <div class="col-xs-4">
+        <div class="col-md-4">
           <h3>Player Two:</h3>
           <h4 id="player-two-name"></h4>
           <p>Score:</p>
