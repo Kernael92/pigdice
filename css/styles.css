@@ -7,5 +7,13 @@ h3 {
    font-weight: bold;
    font-family: cursive;
    font-stretch: ultra-condensed;
+   color: #228B22;
+
+}
+body {
+   background-image: url(../img/image.jpg);
+   background-repeat: no-repeat center center fixed;
+   background-size: cover;
+
 
 }
