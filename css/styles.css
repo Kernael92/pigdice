@@ -1,3 +1,11 @@
 .game{
    display: none;
 }
+h3 {
+   font-style: oblique;
+   font-size: 60px;
+   font-weight: bold;
+   font-family: cursive;
+   font-stretch: ultra-condensed;
+
+}
