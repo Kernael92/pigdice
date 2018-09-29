@@ -29,14 +29,18 @@ $(document).ready(function() {
    var playerOneName;
    var playerTwoName;
 
-   $("form#signup-form").submit(function(event) {
+   totalRoll = parseInt($("#rolled-total").text());
+
+   $("#signup-form").submit(function(event) {
       event.preventDefault();
-      totalRoll = parseInt($("#rolled-total").text());
+
+
        playerOneName = $("player-one-signup").val();
        playerTwoName = $("player-two-signup").val();
 
       if (playerOneName == "" || playerTwoName == "") {
          alert("please enter a name for each player");
+         return;
       }
 
       $(".player-setup").slideUp(600);
@@ -54,18 +58,51 @@ $(document).ready(function() {
             alert("WE HAVE A WINNER!!!!!!  ;)");
          } else {
             player1.roll();
-            if (player1.currentScore == 1) {
+            if (player1.currentScore === 1) {
                player1.takeTurn();
                player2.takeTurn();
                totalRoll = 0;
                $("#hold").attr("disabled", true).removeClass("btn-danger");
-               $(this).addClass("roll-again").text("Roll AGAIN?");
-               $("#rolled-total").text(totalroll);
-               $("#rolled-number").text(player2.currentScore);
-
+               $("#rolled-total").text("0");
+               $("#rolled-number").text(player1.currentScore);
+               $(this).text("Roll");
+               $("#player-msg").text(playerTwoName + ", GO!");
+            }
+            else {
+               totalRoll += player1.currentScore;
+               $("#hold").attr("disabled", false).addClass("btn-danger");
+               $("rolled-number").text(player1.currentScore);
+               $("#rolled-total").text(totalRoll);
+               $(this).addClass("roll-again").text("ROLL AGAIN?")
             }
          }
 
+      }
+      else {
+         if (player2.scoreTotal >= 100 || player1.scoreTotal >= 100) {
+            $("button").attr("readonly", true);
+         }
+         else {
+            player2.roll();
+            if (player2.currentScore ===1) {
+               player1.takeTurn();
+               player2.takeTurn();
+               totalRoll = 0;
+               $("#hold").attr("disabled", true).removeClass("btn-danger");
+               $("#rolled-total").text("0");
+               $("#rolled-number").text(player2.currentScore);
+               $(this).removeClass("roll-again").text("ROLL");
+               totalRoll = 0;
+               $("player-msg").text(playerOneName + ", GO!");
+            }
+            else {
+               totalRoll += player2.currentScore;
+               $("#hold").attr("disabled", false).addClass("btn-danger");
+               $(this).addClass("roll-again").text("ROLL AGAIN?");
+               $("#rolled-total").text(totalRoll);
+               $("#rolled-number").text(player2.currentScore);
+            }
+         }
       }
    });
    // end click
