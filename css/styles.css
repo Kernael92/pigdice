@@ -12,7 +12,7 @@ h3 {
 }
 body {
    background-image: url(../img/image.jpg);
-   background-repeat: no-repeat center center fixed;
+   background-repeat: no-repeat;
    background-size: cover;
 
 
