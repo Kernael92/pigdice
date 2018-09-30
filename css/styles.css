@@ -17,3 +17,18 @@ body {
 
 
 }
+h4 {
+   font-size: 30px;
+   color: #008B8B;
+}
+
+li {
+   font-size: 20px;
+   color: #5F9EA0;
+
+}
+p {
+   font-size: 20px;
+   color: #228B22;
+   font-weight: bold;
+}
