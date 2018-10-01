@@ -25,6 +25,8 @@ Example Output: "Looks like we have a winner!"
 {No known bugs. }
 ## Technologies Used
 {THTML,JavaScript jQuery 3.3.1. Bootstrap}
+## Link to my gh-pages;
+https://github.com/Kernael92/pigdice/tree/gh-pages
 ## Support and contact details
 {For comments or questions, please email kernaelapuko5@gmail.com.}
 ### License
